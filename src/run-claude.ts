@@ -16,6 +16,7 @@ export type ClaudeOptions = {
   disallowedTools?: string;
   maxTurns?: string;
   mcpConfig?: string;
+  model?: string;
 };
 
 type PreparedConfig = {
@@ -29,6 +30,9 @@ export function prepareRunConfig(
 ): PreparedConfig {
   const claudeArgs = [...BASE_ARGS];
 
+  if (options.model) {
+    claudeArgs.push("--model", options.model);
+  }
   if (options.allowedTools) {
     claudeArgs.push("--allowedTools", options.allowedTools);
   }

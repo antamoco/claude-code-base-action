@@ -25,6 +25,7 @@ async function run() {
     });
 
     await runClaude(promptConfig.path, {
+      model: process.env.ANTHROPIC_MODEL,
       allowedTools: process.env.INPUT_ALLOWED_TOOLS,
       disallowedTools: process.env.INPUT_DISALLOWED_TOOLS,
       maxTurns: process.env.INPUT_MAX_TURNS,
